@@ -133,15 +133,18 @@ class ViewController: UIViewController {
         //TotalSalary
         for name in myCompany.workers {
             totalSalary += name.getCost()
-            //print(totalSalary)
-            
         }
+        print(totalSalary)
         
+        
+        // totalSalary ve budget'ı myCompany'den al
+        // yeni add employe func
     }
     
     //When bottom three buttons are touched
     @IBAction func paySalaryButtonTouched(_ sender: Any) {
         //budget -= totalSalary
+        
         budget -= totalSalary
         companyBudgetLabel.text = "budget: $" + String(budget)
         salaryPayInfoLabel.text = "Salaries are paid!"
@@ -187,48 +190,24 @@ class ViewController: UIViewController {
         if enterNameTF.text == "" {
             self.view.makeToast("Please enter your name", duration: 2.0, position: .center)
         } else if enterAgeTF.text == "" {
-            self.view.makeToast("Please enter you age", duration: 2.0, position: .center)
+            self.view.makeToast("Please enter your age", duration: 2.0, position: .center)
         } else if enterJobPositionTF.text == "" {
             self.view.makeToast("Please enter your position", duration: 2.0, position: .center)
         } else {
             self.view.makeToast("New employee is added!", duration: 2.0, position: .center)
+            if enterJobPositionTF.text == "Director" {
+                var newEmployee = Director()
+                newEmployee.name = enterNameTF.text ?? ""
+                newEmployee.age = Int(enterAgeTF.text ?? "0") ?? 0
+                myCompany.workers.append(newEmployee)
+                numberOfWorkerLabel.text = "# of employees: " + String(myCompany.workers.count)
+            }
         }
     }
 }
 
 
 
-// SALARY CALCULATIONS
-protocol CostProtocol {
-    func getCost() -> Int
-}
-
-class EmployeeP: CostProtocol {
-    var age: Int = 0
-    var name: String = ""
-    var cost: Int = 0
-    
-    func getCost() -> Int{
-        return 10000
-    }
-}
-
-class Assistant: EmployeeP {
-    override func getCost() -> Int {
-        return super.getCost() + age * 100
-    }
-}
-
-class Director: EmployeeP {
-    override func getCost() -> Int {
-        return super.getCost() + age * 200
-    }
-}
-
-class CompanyP {
-    var workers: [EmployeeP] = []
-
-}
 
 
 //let company2 = CompanyP()
