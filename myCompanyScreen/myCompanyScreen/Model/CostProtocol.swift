@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol CostProtocol {
+    func getCost() -> Int
+}

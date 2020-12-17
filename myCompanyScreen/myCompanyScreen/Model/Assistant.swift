@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class Assistant: EmployeeP {
+    override func getCost() -> Int {
+        return super.getCost() + age * 100
+    }
+}

@@ -8,9 +8,6 @@
 import UIKit
 import Toast
 
-
-
-
 class ViewController: UIViewController {
 
     //Buttons
@@ -34,12 +31,12 @@ class ViewController: UIViewController {
     
     //Initial budget is 1.000.000
     var budget: Int = 1000000
-    var totalSalary: Int = 0
-    
+
     let baris = Assistant()
     let berkin = Assistant()
     let ahmet = Director()
-    
+    let kaan = Director()
+
     let myCompany = CompanyP()
     
     override func viewDidLoad() {
@@ -48,17 +45,25 @@ class ViewController: UIViewController {
         // Add employee Baris
         baris.age = 20
         baris.name = "Barış"
-        
-        // Add employee Baris
+          
+        // Add employee Berkin
         berkin.age = 25
         berkin.name = "Berkin"
-        
-        // Add employee Baris
+
+        // Add employee Ahmet
         ahmet.age = 30
-        ahmet.name = "Tasci"
+        ahmet.name = "Ahmet"
         
-        myCompany.workers = [baris, berkin, ahmet]
+        // Add employee Kaan
+        kaan.age = 35
+        kaan.name = "Kaan"
+          
+        myCompany.addNewEmployee(newEmployee: baris)
+        myCompany.addNewEmployee(newEmployee: berkin)
+        myCompany.addNewEmployee(newEmployee: ahmet)
+        myCompany.addNewEmployee(newEmployee: kaan)
         
+        //WIEV CHANGES
         
         // compNameLabel view change, only left-top and right-top corner radius
         compNameLabel.clipsToBounds = true
@@ -69,7 +74,7 @@ class ViewController: UIViewController {
         numberOfWorkerLabel.clipsToBounds = true
         numberOfWorkerLabel.layer.cornerRadius = 10
         numberOfWorkerLabel.layer.maskedCorners = .layerMinXMaxYCorner
-        numberOfWorkerLabel.text = "# of employees: " + String(myCompany.workers.count)
+        numberOfWorkerLabel.text = "# of employees: " + String(myCompany.countWorkers())
         
         // companyBudgetLabel view change, only right-bottom corner radius
         companyBudgetLabel.clipsToBounds = true
@@ -121,37 +126,17 @@ class ViewController: UIViewController {
         addingInfoLabel.clipsToBounds = true
         addingInfoLabel.layer.cornerRadius = 10
         addingInfoLabel.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        
-        
-        /*
-        print(baris.getCost())
-        print(berkin.getCost())
-        print(ahmet.getCost())
-        print(myCompany.workers.count)
-        */
-        
-        //TotalSalary
-        for name in myCompany.workers {
-            totalSalary += name.getCost()
-        }
-        print(totalSalary)
-        
-        
-        // totalSalary ve budget'ı myCompany'den al
-        // yeni add employe func
     }
     
     //When bottom three buttons are touched
     @IBAction func paySalaryButtonTouched(_ sender: Any) {
         //budget -= totalSalary
-        
-        budget -= totalSalary
+        budget -= myCompany.getTotalSalary()
         companyBudgetLabel.text = "budget: $" + String(budget)
         salaryPayInfoLabel.text = "Salaries are paid!"
     }
     
     @IBAction func addIncomeButtonTouched(_ sender: Any) {
-        // income add edilince budget'ı artır
         addingInfoLabel.text = "Income added: " + "$" + (addMoneyTF.text ?? "")
         
         if let income = Int(addMoneyTF.text ?? "0") {
@@ -161,7 +146,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addOutcomeButtonTouched(_ sender: Any) {
-        //outcome add edilince budget azalt
         addingInfoLabel.text = "Outcome added: " + "$" + (addMoneyTF.text ?? "")
         
         if let outcome = Int(addMoneyTF.text ?? "0") {
@@ -172,8 +156,6 @@ class ViewController: UIViewController {
     
     // Text field to enter money amount to add as income or outcome
     @IBAction func addMoneyTFFilled(_ sender: Any) {
-        // sadece integer kabul et
-        //self.view.makeToast("Please enter only number!", duration: 2.0, position: .center)
     }
     
     //Filling boxes to add new worker
@@ -186,7 +168,6 @@ class ViewController: UIViewController {
     
     @IBAction func addWorkerButtonPressed(_ sender: Any) {
         
-        //herhangi biri boşsa kabul etme if koy
         if enterNameTF.text == "" {
             self.view.makeToast("Please enter your name", duration: 2.0, position: .center)
         } else if enterAgeTF.text == "" {
@@ -194,21 +175,23 @@ class ViewController: UIViewController {
         } else if enterJobPositionTF.text == "" {
             self.view.makeToast("Please enter your position", duration: 2.0, position: .center)
         } else {
-            self.view.makeToast("New employee is added!", duration: 2.0, position: .center)
             if enterJobPositionTF.text == "Director" {
-                var newEmployee = Director()
+                let newEmployee = Director()
                 newEmployee.name = enterNameTF.text ?? ""
                 newEmployee.age = Int(enterAgeTF.text ?? "0") ?? 0
-                myCompany.workers.append(newEmployee)
-                numberOfWorkerLabel.text = "# of employees: " + String(myCompany.workers.count)
+                myCompany.addNewEmployee(newEmployee: newEmployee)
+                numberOfWorkerLabel.text = "# of employees: " + String(myCompany.countWorkers())
+                self.view.makeToast("New Director is added!", duration: 2.0, position: .center)
+            } else if enterJobPositionTF.text == "Assistant" {
+                let newEmployee = Assistant()
+                newEmployee.name = enterNameTF.text ?? ""
+                newEmployee.age = Int(enterAgeTF.text ?? "0") ?? 0
+                myCompany.addNewEmployee(newEmployee: newEmployee)
+                numberOfWorkerLabel.text = "# of employees: " + String(myCompany.countWorkers())
+                self.view.makeToast("New Assistant is added!", duration: 2.0, position: .center)
+            } else {
+                self.view.makeToast("Please fill the area only with 'Director' or 'Assistant' *case sensitive area", duration: 2.0, position: .center)
             }
         }
     }
 }
-
-
-
-
-
-//let company2 = CompanyP()
-//company2.array = [Assistant(), Director(), Director(), EmployeeP()]
