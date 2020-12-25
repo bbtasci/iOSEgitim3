@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myCompanyScreen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4Hd-ve-9K4" userLabel="Stack View - Payment">
+                                <rect key="frame" x="15" y="426" width="384" height="105"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2S-Wd-rHW">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="P3q-RP-bzr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="15"/>
+                                        <state key="normal" title="PRESS HERE TO PAY SALARIES">
+                                            <color key="titleColor" red="0.0" green="0.0084182338010326714" blue="0.34497573695231953" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="paySalaryButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gK4-bU-G35"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No salary payment has done yet!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6J-tP-FHL">
+                                        <rect key="frame" x="0.0" y="55" width="384" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0050341852539999999" blue="0.2062988281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                        <color key="textColor" systemColor="systemGray6Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Z6J-tP-FHL" firstAttribute="height" secondItem="V2S-Wd-rHW" secondAttribute="height" id="Vmf-B6-Fku"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ghT-J7-cYb">
+                                <rect key="frame" x="15" y="561" width="384" height="105"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68V-Pv-p2W" userLabel="Stack View - Add.Inc.Out">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpT-sS-cGS">
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="tAU-n0-ebR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                                <state key="normal" title="ADD INCOME">
+                                                    <color key="titleColor" red="0.0" green="0.0084182338009999996" blue="0.344975737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addIncomeButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="55X-TA-nVc"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount of $" textAlignment="center" minimumFontSize="17" background="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SGM-uW-uiI">
+                                                <rect key="frame" x="132" y="0.0" width="120" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="CKV-OH-vwi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="addMoneyTFFilled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="cbP-PI-ZQ6"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qre-Iy-dM7">
+                                                <rect key="frame" x="252" y="0.0" width="132" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="COM-9G-PFz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                                <state key="normal" title="ADD OUTCOME">
+                                                    <color key="titleColor" red="0.0" green="0.0084182338009999996" blue="0.344975737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addOutcomeButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yCm-Dp-Ybl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="EpT-sS-cGS" firstAttribute="width" secondItem="Qre-Iy-dM7" secondAttribute="width" id="8Gp-Jb-eIx"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No income or outcome has been added yet!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYo-xx-u5m">
+                                        <rect key="frame" x="0.0" y="55" width="384" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0050341852539999999" blue="0.2062988281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rYo-xx-u5m" firstAttribute="height" secondItem="68V-Pv-p2W" secondAttribute="height" id="ibO-mB-asR"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mNN-LO-eRE" userLabel="Stack View - Company">
+                                <rect key="frame" x="15" y="94" width="384" height="125"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APPLE WORLD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-Wg-uLQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="80"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0060498493270000004" blue="0.2479203214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="lS7-dt-gWM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="20"/>
+                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ub8-EF-ugh">
+                                        <rect key="frame" x="0.0" y="85" width="384" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of employees: 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDh-ZY-qwg">
+                                                <rect key="frame" x="0.0" y="0.0" width="189.5" height="40"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0050341852539999999" blue="0.2062988281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="budget: 1.000.000$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkU-mx-6bt">
+                                                <rect key="frame" x="194.5" y="0.0" width="189.5" height="40"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0050341852539999999" blue="0.2062988281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="bkU-mx-6bt" firstAttribute="height" secondItem="DDh-ZY-qwg" secondAttribute="height" id="XIT-ka-j7n"/>
+                                            <constraint firstItem="bkU-mx-6bt" firstAttribute="width" secondItem="DDh-ZY-qwg" secondAttribute="width" id="uAV-6m-DGJ"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="DDh-ZY-qwg" firstAttribute="height" secondItem="eZb-Wg-uLQ" secondAttribute="height" multiplier="0.5" id="ZO9-rU-D7O"/>
+                                    <constraint firstItem="eZb-Wg-uLQ" firstAttribute="width" secondItem="mNN-LO-eRE" secondAttribute="width" id="k1S-Wk-E7c"/>
+                                    <constraint firstItem="Ub8-EF-ugh" firstAttribute="width" secondItem="mNN-LO-eRE" secondAttribute="width" id="m3C-Zh-8Jh"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jcB-0H-Or4" userLabel="Stack View - Add.Worker">
+                                <rect key="frame" x="15" y="249" width="384" height="112"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKm-bU-1JY">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="enterNameTFFilled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Ea7-5P-fBH"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FyQ-JI-09j">
+                                        <rect key="frame" x="0.0" y="39" width="384" height="34"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="enterAgeTFFilled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Mp5-Dh-AbK"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Assistant or Director" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tG9-7u-zjA">
+                                        <rect key="frame" x="0.0" y="78" width="384" height="34"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="enterJobPositionTFFilled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Ksv-fm-uiC"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9s-vI-ZDO">
+                                <rect key="frame" x="75" y="366" width="264" height="30"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="15"/>
+                                <state key="normal" title="ADD NEW EMPLOYEE!">
+                                    <color key="titleColor" red="0.0" green="0.0050341852539999999" blue="0.2062988281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addWorkerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XAL-DF-NaH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ghT-J7-cYb" firstAttribute="top" secondItem="4Hd-ve-9K4" secondAttribute="bottom" constant="30" id="2Mk-lH-Fef"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Hd-ve-9K4" secondAttribute="trailing" constant="15" id="42a-GJ-1cJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ghT-J7-cYb" secondAttribute="trailing" constant="15" id="BaZ-pr-9KD"/>
+                            <constraint firstItem="mNN-LO-eRE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Cgf-3X-X7X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jcB-0H-Or4" secondAttribute="trailing" constant="15" id="Lsr-tk-Ccw"/>
+                            <constraint firstItem="n9s-vI-ZDO" firstAttribute="top" secondItem="jcB-0H-Or4" secondAttribute="bottom" constant="5" id="Ske-W7-PeQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jcB-0H-Or4" secondAttribute="trailing" constant="15" id="U9V-Pn-LIt"/>
+                            <constraint firstItem="ghT-J7-cYb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="bml-i6-Wqu"/>
+                            <constraint firstItem="jcB-0H-Or4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="egr-TV-0Ge"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mNN-LO-eRE" secondAttribute="trailing" constant="15" id="mLl-GH-f0i"/>
+                            <constraint firstItem="4Hd-ve-9K4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="qkJ-4p-8A4"/>
+                            <constraint firstItem="jcB-0H-Or4" firstAttribute="top" secondItem="mNN-LO-eRE" secondAttribute="bottom" constant="30" id="rjR-Wi-HIB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n9s-vI-ZDO" secondAttribute="trailing" constant="75" id="sBN-Fm-cy9"/>
+                            <constraint firstItem="4Hd-ve-9K4" firstAttribute="top" secondItem="n9s-vI-ZDO" secondAttribute="bottom" constant="30" id="sg4-gu-L4O"/>
+                            <constraint firstItem="mNN-LO-eRE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="uda-Xq-0Cy"/>
+                            <constraint firstItem="jcB-0H-Or4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="xqC-pe-xMh"/>
+                            <constraint firstItem="n9s-vI-ZDO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="ydK-aI-Mfo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addIncomeButton" destination="EpT-sS-cGS" id="naW-6y-t4m"/>
+                        <outlet property="addMoneyTF" destination="SGM-uW-uiI" id="sNr-9A-LkQ"/>
+                        <outlet property="addOutcomeButton" destination="Qre-Iy-dM7" id="b3T-hu-zqP"/>
+                        <outlet property="addWorkerButton" destination="n9s-vI-ZDO" id="bkU-bI-ZJg"/>
+                        <outlet property="addingInfoLabel" destination="rYo-xx-u5m" id="ZWG-9m-i9Y"/>
+                        <outlet property="compNameLabel" destination="eZb-Wg-uLQ" id="h9k-qD-FJ1"/>
+                        <outlet property="companyBudgetLabel" destination="bkU-mx-6bt" id="HSX-S5-M8M"/>
+                        <outlet property="enterAgeTF" destination="FyQ-JI-09j" id="n5w-4H-7xg"/>
+                        <outlet property="enterJobPositionTF" destination="tG9-7u-zjA" id="tty-v1-4Rr"/>
+                        <outlet property="enterNameTF" destination="xKm-bU-1JY" id="vBO-XF-k32"/>
+                        <outlet property="numberOfWorkerLabel" destination="DDh-ZY-qwg" id="Qo3-9b-dNW"/>
+                        <outlet property="paySalaryButton" destination="V2S-Wd-rHW" id="7gT-be-lKK"/>
+                        <outlet property="salaryPayInfoLabel" destination="Z6J-tP-FHL" id="wMj-7N-En9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-214.49275362318843" y="75.669642857142847"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
